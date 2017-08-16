@@ -69,19 +69,8 @@
 
         // function step(timestamp) {
         function step() {
-          // if (!start) start = timestamp;
-          // const progress = timestamp - start;
-
-          // time limit ?
-          // if (progress < 13000) {
           vueThis.bounceBall();
           vueThis.req = window.requestAnimationFrame(step);
-          // } else {
-          //   // reset
-          //   vueThis.x1 = vueThis.radius;
-          //   vueThis.y1 = vueThis.radius;
-          //   vueThis.running = false;
-          // }
         }
 
         this.req = window.requestAnimationFrame(step);
