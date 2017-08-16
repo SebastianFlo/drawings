@@ -3,11 +3,13 @@
     <h3> {{ greeting }} </h3>
 
     <drawing></drawing>
+    <bounce></bounce>
 </div>
 </template>
 
 <script>
   import Drawing from '@/components/Drawing';
+  import Bounce from '@/components/Bounce';
 
   export default {
     name: 'home',
@@ -17,7 +19,8 @@
       };
     },
     components: {
-      Drawing
+      Drawing,
+      Bounce
     }
   };
 
