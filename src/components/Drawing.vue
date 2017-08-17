@@ -9,7 +9,8 @@
 
           <md-card-media class="th-box20">
             <md-layout md-align="center">
-              <img class="ths-card-image" src="../assets/logo.png" alt="People">
+              <!-- <img class="ths-card-image" src="../assets/logo.png" alt="People"> -->
+              <dash></dash>
             </md-layout>
           </md-card-media>
 
@@ -40,6 +41,8 @@
 </template>
 
 <script>
+  import Dash from '@/components/Dash';
+  
   export default {
     name: 'drawing',
     data() {
@@ -52,6 +55,9 @@
         },
       };
     },
+    components: {
+      Dash
+    }
   };
 
 </script>
