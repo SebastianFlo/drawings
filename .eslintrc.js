@@ -35,6 +35,7 @@ module.exports = {
     }],
     'comma-dangle': ['warn', 'always'],
     'space-before-function-paren': ['warn', 'never'],
+    'object-shorthand': ['warn', 'never'],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }
