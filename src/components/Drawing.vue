@@ -24,9 +24,9 @@
                 <md-icon>keyboard_arrow_left</md-icon>
               </md-button>
             </md-layout>
-            <md-layout md-align="center">
+            <!-- <md-layout md-align="center">
               <md-rating-bar v-model="rating" class="md-accent" md-theme="default"></md-rating-bar>
-            </md-layout>
+            </md-layout> -->
             <md-layout class="th-box20"md-align="end">
               <md-button class="md-icon-button md-raised">
                 <md-icon>keyboard_arrow_right</md-icon>
