@@ -33,7 +33,13 @@
     },
     mounted: function () {
       const path = document.querySelectorAll('svg path');
-      path.forEach(pathy => console.log(`${pathy.id} - ${pathy.getTotalLength()}`));
+      path.forEach(pathy => {
+        console.log(`${pathy.id} - ${pathy.getTotalLength()}`);
+        const totalPathLength = pathy.getTotalLength();
+        // add style to each path;
+        pathy.style['stroke-dasharray'] = `${totalPathLength}px`;
+        pathy.style['stroke-dashoffset'] = `${totalPathLength}px`;
+      });
 
       setTimeout(() => {
         this.fadeLoader = true;
@@ -85,35 +91,5 @@
     to {
       stroke-dashoffset: 0;
     }
-  }
-
-  #pathy-1 {
-    stroke-dasharray: 581.8px;
-    stroke-dashoffset: 581.8px;
-  }
-
-  #pathy-2 {
-    stroke-dasharray: 1077.3px;
-    stroke-dashoffset: 1077.3px;
-  }
-
-  #pathy-3 {
-    stroke-dasharray: 579px;
-    stroke-dashoffset: 579px;
-  }
-
-  #pathy-4 {
-    stroke-dasharray: 1603.6px;
-    stroke-dashoffset: 1603.6px;
-  }
-
-  #pathy-5 {
-    stroke-dasharray: 463.5px;
-    stroke-dashoffset: 463.5px;
-  }
-
-  #pathy-6 {
-    stroke-dasharray: 721.9px;
-    stroke-dashoffset: 721.9px;
   }
 </style>
