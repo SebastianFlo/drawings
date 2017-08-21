@@ -9,8 +9,7 @@
 
           <md-card-media class="th-box20">
             <md-layout md-align="center">
-              <!-- <img class="ths-card-image" src="../assets/logo.png" alt="People"> -->
-              <dash></dash>
+              <dash v-bind:current-image="currentImage"></dash>
             </md-layout>
           </md-card-media>
 
@@ -24,9 +23,6 @@
                 <md-icon>keyboard_arrow_left</md-icon>
               </md-button>
             </md-layout>
-            <!-- <md-layout md-align="center">
-              <md-rating-bar v-model="rating" class="md-accent" md-theme="default"></md-rating-bar>
-            </md-layout> -->
             <md-layout class="th-box20"md-align="end">
               <md-button class="md-icon-button md-raised">
                 <md-icon>keyboard_arrow_right</md-icon>
@@ -49,10 +45,11 @@
       return {
         rating: 4,
         cardData: {
-          title: 'Penguin',
+          title: 'Cat',
           subtitle: 'A simple day',
           description: 'I just don\'t know that to do today',
         },
+        currentImage: 'image-cat'
       };
     },
     components: {
