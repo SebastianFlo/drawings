@@ -2,26 +2,41 @@
   <div>
     <div class="drawing-container">
       <div v-bind:class="{ invisible: fadeLoader }" v-bind:is="currentImage"></div>
-      <img v-bind:class="{ invisible: !fadeLoader }" src="../assets/image-cat.jpg" class="dash-image">
+      <intersect @enter="logIntersectedTrue" @leave="logIntersectedFalse">
+        <img v-bind:class="{ invisible: !fadeLoader }" src="../assets/image-cat.jpg" class="dash-image">
+      </intersect>
     </div>
   </div>
 </template>
 
 <script>
+  import Intersect from 'vue-intersect';
   import imageCat from './images/cat';
 
   export default {
     name: 'dash',
     data() {
       return {
-        fadeLoader: false
+        fadeLoader: false,
+        msg: ''
       };
     },
     props: ['currentImage'],
     components: {
-      imageCat
+      imageCat,
+      Intersect
     },
     methods: {
+      visibilityChanged: function (isVisible, entry) {
+        this.isVisible = isVisible;
+        console.log(`${isVisible}`, entry);
+      },
+      logIntersectedTrue: function () {
+        console.log('true');
+      },
+      logIntersectedFalse: function () {
+        console.log('false');
+      }
     },
     mounted: function () {
       const path = document.querySelectorAll('svg path');
