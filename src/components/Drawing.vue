@@ -29,8 +29,6 @@
               </md-button>
             </md-layout>
           </md-card-actions>
-
-
         </md-card>
     </md-layout>
 </div>
