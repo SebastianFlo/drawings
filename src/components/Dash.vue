@@ -27,30 +27,23 @@
       Intersect
     },
     methods: {
-      visibilityChanged: function (isVisible, entry) {
-        this.isVisible = isVisible;
-        console.log(`${isVisible}`, entry);
-      },
       logIntersectedTrue: function () {
+        this.$emit('draw');
+        this.fadeImage();
         console.log('true');
       },
       logIntersectedFalse: function () {
-        console.log('false');
+        this.$emit('reset');
+        this.fadeLoader = false;
+        console.log('this.fadeLoader', this.fadeLoader);
+      },
+      fadeImage: function () {
+        setTimeout(() => {
+          this.fadeLoader = true;
+        }, 2000);
       }
     },
     mounted: function () {
-      const path = document.querySelectorAll('svg path');
-      path.forEach(pathy => {
-        console.log(`${pathy.id} - ${pathy.getTotalLength()}`);
-        const totalPathLength = pathy.getTotalLength();
-        // add style to each path;
-        pathy.style['stroke-dasharray'] = `${totalPathLength}px`;
-        pathy.style['stroke-dashoffset'] = `${totalPathLength}px`;
-      });
-
-      setTimeout(() => {
-        this.fadeLoader = true;
-      }, 2000);
     }
   };
 

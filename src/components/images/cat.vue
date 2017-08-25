@@ -24,29 +24,45 @@
       };
     },
     methods: {
+      reset: function () {
+        const path = document.querySelectorAll('svg path');
+        path.forEach(pathy => {
+          pathy.classList.remove('draw');
+        });
+      },
+      draw: function () {
+        const path = document.querySelectorAll('svg path');
+        path.forEach(pathy => {
+          console.log(`${pathy.id} - ${pathy.getTotalLength()}`);
+          const totalPathLength = pathy.getTotalLength();
+          // add style to each path;
+          pathy.classList.add('draw');
+          pathy.style['stroke-dasharray'] = `${totalPathLength}px`;
+          pathy.style['stroke-dashoffset'] = `${totalPathLength}px`;
+        });
+      }
     },
     mounted: function () {
-      const path = document.querySelectorAll('svg path');
-      path.forEach(pathy => {
-        console.log(`${pathy.id} - ${pathy.getTotalLength()}`);
-        const totalPathLength = pathy.getTotalLength();
-        // add style to each path;
-        pathy.style['stroke-dasharray'] = `${totalPathLength}px`;
-        pathy.style['stroke-dashoffset'] = `${totalPathLength}px`;
-      });
-
-      setTimeout(() => {
-        this.fadeLoader = true;
-      }, 2000);
+      this.$parent.$on('draw', this.draw);
+      this.$parent.$on('reset', this.reset);
     }
   };
 
 </script>
 
 <style scoped>
-  svg>path {
+  svg > path {
     margin: auto;
     fill-opacity: 0;
+  }
+
+  svg {
+    position: absolute;
+    left: 5px;
+    top: 0;
+  }
+
+  .draw {
     stroke: #333333;
     stroke-width: 1;
     animation-name: draw;
@@ -54,12 +70,6 @@
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
     animation-timing-function: linear;
-  }
-
-  svg {
-    position: absolute;
-    left: 5px;
-    top: 0;
   }
 
   @keyframes draw {
