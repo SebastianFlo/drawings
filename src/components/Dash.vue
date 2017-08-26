@@ -1,8 +1,11 @@
 <template>
   <div>
+    <md-button @click="showImage = !showImage; fadeLoader = !showImage" class="md-raised">
+        {{ showImage ? 'Hide' : 'Show '}}
+    </md-button>
     <div class="drawing-container">
-      <div v-bind:class="{ invisible: fadeLoader }" v-bind:is="currentImage"></div>
-      <intersect @enter="logIntersectedTrue" @leave="logIntersectedFalse">
+      <div v-if="showImage" v-bind:class="{ invisible: fadeLoader }" v-bind:is="currentImage"></div>
+      <intersect v-if="showImage" @enter="logIntersectedTrue" @leave="logIntersectedFalse">
         <img v-bind:class="{ invisible: !fadeLoader }" src="../assets/image-cat.jpg" class="dash-image">
       </intersect>
     </div>
@@ -18,7 +21,7 @@
     data() {
       return {
         fadeLoader: false,
-        msg: ''
+        showImage: true
       };
     },
     props: ['currentImage'],
@@ -29,8 +32,9 @@
     methods: {
       logIntersectedTrue: function () {
         this.$emit('draw');
-        this.fadeImage();
-        console.log('true');
+        setTimeout(() => {
+          this.fadeImage();
+        }, 500);
       },
       logIntersectedFalse: function () {
         this.$emit('reset');

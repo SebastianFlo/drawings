@@ -21,28 +21,43 @@
     name: 'imageCat',
     data() {
       return {
+        lastReset: false
       };
     },
     methods: {
       reset: function () {
+        if (!this.lastReset) {
+          return;
+        }
         const path = document.querySelectorAll('svg path');
         path.forEach(pathy => {
           pathy.classList.remove('draw');
         });
+        this.lastReset = false;
       },
       draw: function () {
+        if (this.lastReset) {
+          return;
+        }
+
         const path = document.querySelectorAll('svg path');
         path.forEach(pathy => {
-          console.log(`${pathy.id} - ${pathy.getTotalLength()}`);
-          const totalPathLength = pathy.getTotalLength();
-          // add style to each path;
           pathy.classList.add('draw');
-          pathy.style['stroke-dasharray'] = `${totalPathLength}px`;
-          pathy.style['stroke-dashoffset'] = `${totalPathLength}px`;
+          // pathy.style['stroke-dasharray'] = `${totalPathLength}px`;
+          // pathy.style['stroke-dashoffset'] = `${totalPathLength}px`;
         });
+        this.lastReset = true;
       }
     },
     mounted: function () {
+      const path = document.querySelectorAll('svg path');
+      path.forEach(pathy => {
+        console.log(`${pathy.id} - ${pathy.getTotalLength()}`);
+        const totalPathLength = pathy.getTotalLength();
+        pathy.style['stroke-dasharray'] = `${totalPathLength}px`;
+        pathy.style['stroke-dashoffset'] = `${totalPathLength}px`;
+      });
+
       this.$parent.$on('draw', this.draw);
       this.$parent.$on('reset', this.reset);
     }
