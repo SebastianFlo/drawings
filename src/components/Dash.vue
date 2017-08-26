@@ -1,11 +1,8 @@
 <template>
   <div>
-    <md-button @click="showImage = !showImage; fadeLoader = !showImage" class="md-raised">
-        {{ showImage ? 'Hide' : 'Show '}}
-    </md-button>
     <div class="drawing-container">
-      <div v-if="showImage" v-bind:class="{ invisible: fadeLoader }" v-bind:is="currentImage"></div>
-      <intersect v-if="showImage" @enter="logIntersectedTrue" @leave="logIntersectedFalse">
+      <div v-bind:class="{ invisible: fadeLoader }" v-bind:is="currentImage"></div>
+      <intersect @enter="logIntersectedTrue" @leave="logIntersectedFalse">
         <img v-bind:class="{ invisible: !fadeLoader }" src="../assets/image-cat.jpg" class="dash-image">
       </intersect>
     </div>
@@ -15,6 +12,7 @@
 <script>
   import Intersect from 'vue-intersect';
   import imageCat from './images/cat';
+  import logo from './images/logo';
 
   export default {
     name: 'dash',
@@ -27,6 +25,7 @@
     props: ['currentImage'],
     components: {
       imageCat,
+      logo,
       Intersect
     },
     methods: {

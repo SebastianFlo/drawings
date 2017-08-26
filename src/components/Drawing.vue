@@ -9,7 +9,7 @@
 
           <md-card-media class="th-box20">
             <md-layout md-align="center">
-              <dash v-bind:current-image="currentImage"></dash>
+              <dash v-bind:current-image="currentImages[currentIndex]"></dash>
             </md-layout>
           </md-card-media>
 
@@ -19,12 +19,12 @@
 
           <md-card-actions>
             <md-layout class="th-box20">
-              <md-button class="md-icon-button md-raised">
+              <md-button @click="prevImage" class="md-icon-button md-raised">
                 <md-icon>keyboard_arrow_left</md-icon>
               </md-button>
             </md-layout>
             <md-layout class="th-box20"md-align="end">
-              <md-button class="md-icon-button md-raised">
+              <md-button @click="nextImage" class="md-icon-button md-raised">
                 <md-icon>keyboard_arrow_right</md-icon>
               </md-button>
             </md-layout>
@@ -47,11 +47,29 @@
           subtitle: 'A simple day',
           description: 'I just don\'t know that to do today',
         },
-        currentImage: 'image-cat'
+        currentImages: ['image-cat', 'logo'],
+        currentImage: 'image-cat',
+        currentIndex: 0
       };
     },
     components: {
       Dash
+    },
+    methods: {
+      nextImage: function () {
+        ++this.currentIndex;
+        if (this.currentIndex > this.currentImages.length) {
+          this.currentIndex = 0;
+        }
+        console.log('going to next image');
+      },
+      prevImage: function () {
+        --this.currentIndex;
+        if (this.currentIndex < 0) {
+          this.currentIndex = this.currentImages.length;
+        }
+        console.log('going to prev image');
+      }
     }
   };
 
