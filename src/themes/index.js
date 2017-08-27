@@ -7,6 +7,6 @@ export default {
   },
   bw: {
     primary: 'white',
-    accent: 'black',
+    accent: 'grey',
   },
 };

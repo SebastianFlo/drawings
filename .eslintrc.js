@@ -39,7 +39,9 @@ module.exports = {
     'arrow-parens': ['warn'],
     'no-param-reassign': ['warn'],
     'no-plusplus': ['warn'],
+    'indent': ['warn'],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
-  }
+  },
+  "indent": ["error", 4]
 }

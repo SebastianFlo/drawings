@@ -5,7 +5,7 @@ import 'vue-material/dist/vue-material.css';
 import Vue from 'vue';
 import VueMaterial from 'vue-material';
 
-import App from './App';
+import TheaApp from './TheaApp';
 import router from './router';
 
 import themes from './themes';
@@ -18,8 +18,8 @@ Vue.material.registerTheme(themes);
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
+  el: '#thea-app',
   router,
-  template: '<App/>',
-  components: { App },
+  template: '<TheaApp/>',
+  components: { TheaApp },
 });

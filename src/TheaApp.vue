@@ -1,40 +1,41 @@
 <template>
-  <div id="app">
+  <div id="thea-app">
     <md-theme md-name="default">
       <md-toolbar class="md-transparent">
         <h2 class="md-title" style="flex: 1">Thea's Website</h2>
       </md-toolbar>
-
-      <router-view class="main-content"></router-view>
 
       <md-speed-dial md-open="hover" md-direction="right" class="md-fab-top-left" md-theme="bw">
         <md-button class="md-fab" md-fab-trigger>
           <md-icon md-icon-morph>list</md-icon>
           <md-icon>menu</md-icon>
         </md-button>
-
+        
         <md-button class="md-fab md-primary md-mini md-clean">
           <md-icon>note_add</md-icon>
         </md-button>
-
+        
         <md-button class="md-fab md-primary md-mini md-clean">
           <md-icon>alarm_add</md-icon>
         </md-button>
       </md-speed-dial>
-
+      
+      <md-layout md-align="center">
+        <router-view class="main-content"></router-view>
+      </md-layout>
     </md-theme>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'app',
+    name: 'thea-app',
   };
 
 </script>
 
 <style>
-  #app {
+  #thea-app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -52,5 +53,13 @@
 
   .th-box20 {
     padding: 20px;
+  }
+
+  .md-button.md-fab {
+    border-radius: 10px 0px 10px 0px;
+  }
+
+  .md-layout {
+    border: 1px solid cornflowerblue;
   }
 </style>

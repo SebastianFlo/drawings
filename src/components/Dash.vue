@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="drawing-container">
+    <div class="drawing-container"> {{ currentImage }}
       <div v-bind:class="{ invisible: fadeLoader }" v-bind:is="currentImage"></div>
       <intersect @enter="logIntersectedTrue" @leave="logIntersectedFalse">
         <img v-bind:class="{ invisible: !fadeLoader }" src="../assets/image-cat.jpg" class="dash-image">

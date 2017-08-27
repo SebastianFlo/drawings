@@ -3,7 +3,8 @@
     <h3> {{ greeting }} </h3>
 
     <drawing></drawing>
-    <bounce></bounce>
+    <drawing></drawing>
+
 </div>
 </template>
 
