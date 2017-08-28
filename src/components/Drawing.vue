@@ -23,7 +23,7 @@
                 <md-icon>keyboard_arrow_left</md-icon>
               </md-button>
             </md-layout>
-            <md-layout class="th-box20"md-align="end">
+            <md-layout class="th-box20" md-align="end">
               <md-button @click="nextImage" class="md-icon-button md-raised">
                 <md-icon>keyboard_arrow_right</md-icon>
               </md-button>
@@ -94,13 +94,5 @@
 
   a {
     color: #42b983;
-  }
-
-  .ths-card-image {
-    display: block;
-    max-width: 500px;
-    max-height: 500px;
-    width: auto !important;
-    height: auto;
   }
 </style>

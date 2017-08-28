@@ -4,12 +4,17 @@
                 {{ greeting }}
         </md-layout>
         <md-layout md-align="center">
-            Images go here
+            <thea-carrousel></thea-carrousel>
+        </md-layout>
+        <md-layout md-align="center">
+            Footer goes here
         </md-layout>
     </div>
 </template>
 
 <script>
+    import TheaCarrousel from '@/components/Carrousel';
+
     export default {
         name: 'thea-home',
         data() {
@@ -18,6 +23,7 @@
             };
         },
         components: {
+            TheaCarrousel
         }
     };
 
