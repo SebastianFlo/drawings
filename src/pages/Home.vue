@@ -1,12 +1,12 @@
 <template>
-    <div>
-        <md-layout md-align="center">
+    <div class="home-container">
+        <md-layout md-align="center perspective-layer-1" class="flex-vert">
                 {{ greeting }}
         </md-layout>
-        <md-layout md-align="center">
+        <md-layout md-align="center perspective-layer-2" class="flex-vert">
             <thea-carrousel></thea-carrousel>
         </md-layout>
-        <md-layout md-align="center">
+        <md-layout md-align="center perspective-layer-1" class="flex-vert">
             Footer goes here
         </md-layout>
     </div>
@@ -31,5 +31,12 @@
 
 <!-- Add "scoped " attribute to limit CSS to this component only -->
 <style scoped>
-    
+    .home-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .flex-vert {
+        flex: 1 0 auto;
+    }
 </style>

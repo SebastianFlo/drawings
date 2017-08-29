@@ -21,7 +21,7 @@
       </md-speed-dial>
       
       <md-layout md-align="center">
-        <router-view class="main-content"></router-view>
+        <router-view class="main-content perspective md-flex"></router-view>
       </md-layout>
     </md-theme>
   </div>
@@ -59,7 +59,27 @@
     border-radius: 10px 0px 10px 0px;
   }
 
+  .perspective {
+    perspective: 500px;
+  }
+
+  .perspective-layer-1 {
+    transform: translateZ(-50px);
+    border: 1px solid red;
+  }
+  .perspective-layer-2 {
+    transform: translateZ(-100px);
+    border: 1px solid darkred;
+  }
+  .perspective-layer-3 {
+    transform: translateZ(-150px);
+    border: 1px solid crimson;
+  }
+  .perspective-layer-4 {
+    transform: translateZ(-200px);
+  }
+
   .md-layout {
-    border: 1px solid cornflowerblue;
+    /* border: 1px solid cornflowerblue; */
   }
 </style>
