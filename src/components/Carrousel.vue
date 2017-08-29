@@ -41,12 +41,20 @@
     },
     methods: {
       nextImage: function () {
+        if (this.currentIndex === this.cards.length - 1) {
+          this.currentIndex = 0;
+          return;
+        }
         ++this.currentIndex;
-        console.log('going to next image');
+        console.log('this.currentIndex', this.currentIndex);
       },
       prevImage: function () {
+        if (this.currentIndex === 0) {
+          this.currentIndex = this.cards.length - 1;
+          return;
+        }
         --this.currentIndex;
-        console.log('going to prev image');
+        console.log('this.currentIndex', this.currentIndex);
       }
     },
     computed: {
