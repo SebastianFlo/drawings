@@ -2,15 +2,12 @@
   <div>
     <div class="drawing-container"> {{ currentImage }}
       <div v-bind:class="{ invisible: fadeLoader }" v-bind:is="currentImage"></div>
-      <intersect @enter="logIntersectedTrue" @leave="logIntersectedFalse">
         <img v-bind:class="{ invisible: !fadeLoader }" src="../assets/image-cat.jpg" class="dash-image">
-      </intersect>
     </div>
   </div>
 </template>
 
 <script>
-  import Intersect from 'vue-intersect';
   import imageCat from './images/cat';
   import logo from './images/logo';
 
@@ -26,7 +23,6 @@
     components: {
       imageCat,
       logo,
-      Intersect
     },
     methods: {
       logIntersectedTrue: function () {

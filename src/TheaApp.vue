@@ -29,7 +29,7 @@
 
 <script>
   export default {
-    name: 'thea-app',
+    name: 'thea-app'
   };
 
 </script>

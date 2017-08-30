@@ -1,7 +1,7 @@
 <template>
     <div class="home-container">
         <md-layout md-align="center perspective-layer-1" class="flex-vert">
-                {{ greeting }}
+            {{ greeting }}
         </md-layout>
         <md-layout md-align="center perspective-layer-2" class="flex-vert">
             <thea-carrousel></thea-carrousel>
@@ -19,7 +19,7 @@
         name: 'thea-home',
         data() {
             return {
-                greeting: 'Welcome To Thea\'s Home Page',
+                greeting: 'Welcome To Thea\'s Home Page'
             };
         },
         components: {
