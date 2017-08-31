@@ -11,6 +11,12 @@ export default {
             image: 'Cat2.png',
             subtitle: 'A hard day',
             description: 'So gangsta',
+        },
+        card3: {
+            title: 'Cat 3',
+            image: 'Cat3.png',
+            subtitle: 'A hard day',
+            description: 'So gangsta',
         }
     }
 };

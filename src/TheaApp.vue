@@ -5,7 +5,7 @@
         <h2 class="md-title" style="flex: 1">Thea's Website</h2>
       </md-toolbar>
 
-      <md-speed-dial md-open="hover" md-direction="right" class="md-fab-top-left" md-theme="bw">
+      <!-- <md-speed-dial md-open="hover" md-direction="right" class="md-fab-top-left" md-theme="bw">
         <md-button class="md-fab" md-fab-trigger>
           <md-icon md-icon-morph>list</md-icon>
           <md-icon>menu</md-icon>
@@ -18,7 +18,7 @@
         <md-button class="md-fab md-primary md-mini md-clean">
           <md-icon>alarm_add</md-icon>
         </md-button>
-      </md-speed-dial>
+      </md-speed-dial> -->
       
       <md-layout md-align="center">
         <router-view class="main-content perspective md-flex"></router-view>
@@ -65,21 +65,25 @@
 
   .perspective-layer-1 {
     transform: translateZ(-50px);
+    z-index: 5;
     border: 1px solid red;
   }
   .perspective-layer-2 {
     transform: translateZ(-100px);
+    z-index: 4;
     border: 1px solid darkred;
   }
   .perspective-layer-3 {
     transform: translateZ(-150px);
+    z-index: 3;
     border: 1px solid crimson;
   }
   .perspective-layer-4 {
+    z-index: 2;
     transform: translateZ(-200px);
   }
 
   .md-layout {
-    /* border: 1px solid cornflowerblue; */
+    border: 1px solid cornflowerblue;
   }
 </style>

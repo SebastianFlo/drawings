@@ -1,37 +1,34 @@
 <template>
   <div>
-    <md-card class="md-primary th-flex--fullwidth">
-      <md-card-header>
-        <div class="md-title">{{ currentCard.title }}</div>
-        <div class="md-subhead">{{ currentCard.subtitle }}</div>
-      </md-card-header>
+    <md-layout :md-gutter="40" md-align="center">
+      <md-layout>
+        <carrousel-item @click="prevImage" :card-data="cards[prevIndex]" class="perspective-layer-4 th-carrousel-secondary"></carrousel-item>
+      </md-layout>
+      <md-layout>
+        <carrousel-item :card-data="cards[currentIndex]" class="perspective-layer-1"></carrousel-item>
+      </md-layout>
+      <md-layout>
+        <carrousel-item :card-data="cards[nextIndex]" class="perspective-layer-4 th-carrousel-secondary"></carrousel-item>
+      </md-layout>
+    </md-layout>
 
-      <md-card-media class="th-box20">
-        <observer @intersect-enter="handleEnter" @intersect-exit="handleExit" :threshold="[0, 0.5, 1]">
-            Image goes here
-        </observer>
-      </md-card-media>
-      
-      <md-card-content>{{ currentCard.description }}</md-card-content>
-
-      <md-card-actions>
-        <md-layout class="th-box20">
-          <md-button @click="prevImage" class="md-icon-button md-raised">
-            <md-icon>keyboard_arrow_left</md-icon>
-          </md-button>
-        </md-layout>
-        <md-layout class="th-box20" md-align="end">
-          <md-button @click="nextImage" class="md-icon-button md-raised">
-            <md-icon>keyboard_arrow_right</md-icon>
-          </md-button>
-        </md-layout>
-      </md-card-actions>
-    </md-card>
+    <md-layout>
+      <md-layout>
+        <md-button @click="prevImage" class="md-icon-button md-raised">
+          <md-icon>keyboard_arrow_left</md-icon>
+        </md-button>
+      </md-layout>
+      <md-layout md-align="end">
+        <md-button @click="nextImage" class="md-icon-button md-raised">
+          <md-icon>keyboard_arrow_right</md-icon>
+        </md-button>
+      </md-layout>
+    </md-layout>
   </div>
 </template>
 
 <script>
-  import Observer from '@/components/Observer';
+  import CarrouselItem from '@/components/CarrouselItem';
   import data from '../assets/data';
 
   export default {
@@ -39,11 +36,12 @@
     data() {
       return {
         greeting: 'This is the carrousel',
+        cards: Object.values(data.images),
         currentIndex: 0
       };
     },
     components: {
-      Observer
+      CarrouselItem
     },
     methods: {
       nextImage: function () {
@@ -52,7 +50,6 @@
           return;
         }
         ++this.currentIndex;
-        console.log('this.currentIndex', this.currentIndex);
       },
       prevImage: function () {
         if (this.currentIndex === 0) {
@@ -60,21 +57,20 @@
           return;
         }
         --this.currentIndex;
-        console.log('this.currentIndex', this.currentIndex);
-      },
-      handleEnter() {
-        console.log('entering');
-      },
-      handleExit() {
-        console.log('exiting');
       }
     },
     computed: {
-      cards() {
-        return Object.values(data.images);
+      nextIndex () {
+        if (this.currentIndex === this.cards.length - 1) {
+          return 0;
+        }
+        return this.currentIndex + 1;
       },
-      currentCard() {
-        return this.cards[this.currentIndex];
+      prevIndex () {
+        if (this.currentIndex === 0) {
+          return this.cards.length - 1;
+        }
+        return this.currentIndex - 1;
       }
     }
   };
@@ -83,5 +79,7 @@
 
 <!-- Add "scoped " attribute to limit CSS to this component only -->
 <style scoped>
-
+  .th-carrousel-secondary {
+    filter: blur(2px);
+  }
 </style>
