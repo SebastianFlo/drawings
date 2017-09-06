@@ -1,5 +1,6 @@
 <template>
   <div id="thea-app">
+    <svg-circle></svg-circle>
     <md-theme md-name="default">
       <md-toolbar class="md-transparent">
         <h2 class="md-title" style="flex: 1">Thea's Website</h2>
@@ -17,12 +18,14 @@
 </template>
 
 <script>
+  import SvgCircle from '@/components/images/circle';
   import TheaHeader from '@/components/Header';
   import TheaFooter from '@/components/Footer';
 
   export default {
     name: 'thea-app',
     components: {
+        SvgCircle,
         TheaHeader,
         TheaFooter
     }

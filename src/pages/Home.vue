@@ -1,12 +1,16 @@
 <template>
     <div class="home-container">
         <md-layout md-align="center" class="flex-vert">
+            <svg-circle></svg-circle>
+        </md-layout>
+        <md-layout md-align="center" class="flex-vert">
             <thea-carrousel></thea-carrousel>
         </md-layout>
     </div>
 </template>
 
 <script>
+    import SvgCircle from '@/components/images/circle';
     import TheaCarrousel from '@/components/Carrousel';
 
     export default {
@@ -17,6 +21,7 @@
             };
         },
         components: {
+            SvgCircle,
             TheaCarrousel
         }
     };
