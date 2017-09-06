@@ -1,13 +1,7 @@
 <template>
     <div class="home-container">
         <md-layout md-align="center" class="flex-vert">
-            {{ greeting }}
-        </md-layout>
-        <md-layout md-align="center" class="flex-vert">
             <thea-carrousel></thea-carrousel>
-        </md-layout>
-        <md-layout md-align="center" class="flex-vert">
-            Footer goes here
         </md-layout>
     </div>
 </template>

@@ -1,15 +1,15 @@
 <template>
   <div>
     <md-layout :md-gutter="40" md-align="center">
-      <md-layout>
+      <!-- <md-layout>
         <carrousel-item @click="prevImage" :card-data="cards[prevIndex]" class="perspective-layer-4 th-carrousel-secondary"></carrousel-item>
-      </md-layout>
+      </md-layout> -->
       <md-layout>
         <carrousel-item :card-data="cards[currentIndex]" class="perspective-layer-1"></carrousel-item>
       </md-layout>
-      <md-layout>
+      <!-- <md-layout>
         <carrousel-item :card-data="cards[nextIndex]" class="perspective-layer-4 th-carrousel-secondary"></carrousel-item>
-      </md-layout>
+      </md-layout> -->
     </md-layout>
 
     <md-layout>

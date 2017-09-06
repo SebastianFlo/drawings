@@ -5,31 +5,27 @@
         <h2 class="md-title" style="flex: 1">Thea's Website</h2>
       </md-toolbar>
 
-      <!-- <md-speed-dial md-open="hover" md-direction="right" class="md-fab-top-left" md-theme="bw">
-        <md-button class="md-fab" md-fab-trigger>
-          <md-icon md-icon-morph>list</md-icon>
-          <md-icon>menu</md-icon>
-        </md-button>
-        
-        <md-button class="md-fab md-primary md-mini md-clean">
-          <md-icon>note_add</md-icon>
-        </md-button>
-        
-        <md-button class="md-fab md-primary md-mini md-clean">
-          <md-icon>alarm_add</md-icon>
-        </md-button>
-      </md-speed-dial> -->
+      <thea-header></thea-header>
       
       <md-layout md-align="center">
         <router-view class="main-content perspective md-flex"></router-view>
       </md-layout>
+
+      <thea-footer></thea-footer>
     </md-theme>
   </div>
 </template>
 
 <script>
+  import TheaHeader from '@/components/Header';
+  import TheaFooter from '@/components/Footer';
+
   export default {
-    name: 'thea-app'
+    name: 'thea-app',
+    components: {
+        TheaHeader,
+        TheaFooter
+    }
   };
 
 </script>
