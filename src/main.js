@@ -3,15 +3,22 @@
 import 'vue-material/dist/vue-material.css';
 
 import Vue from 'vue';
+import Vuex from 'vuex';
 import VueMaterial from 'vue-material';
 
 import TheaApp from './TheaApp';
 import router from './router';
 
+import storeConfig from './storeConfig';
 import themes from './themes';
+
 
 Vue.config.productionTip = false;
 Vue.use(VueMaterial);
+Vue.use(Vuex);
+
+// State configuration
+const store = new Vuex.Store(storeConfig);
 
 //  Theme configuration
 Vue.material.registerTheme(themes);
@@ -20,6 +27,7 @@ Vue.material.registerTheme(themes);
 new Vue({
   el: '#thea-app',
   router,
+  store,
   template: '<TheaApp/>',
   components: { TheaApp },
 });
