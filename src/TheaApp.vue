@@ -1,6 +1,6 @@
 <template>
     <div id="thea-app">
-        <thea-attention></thea-attention>
+        <thea-attention show-sectors="true"></thea-attention>
         <svg-circle></svg-circle>
         <md-theme md-name="default">
             <md-toolbar class="md-transparent">
