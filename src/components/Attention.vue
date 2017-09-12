@@ -122,7 +122,7 @@
                     });
 
                     sectorEl.innerHTML = `
-                        <h3>${sector}</h3>
+                        <span>${sector}</span>
                     `;
                     this.myDoc.appendChild(sectorEl);
                 });
