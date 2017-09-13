@@ -7,7 +7,9 @@
                 <h2 class="md-title" style="flex: 1">Thea's Website</h2>
             </md-toolbar>
 
-            <thea-header></thea-header>
+            <thea-sector>
+                <thea-header id="thea-header"></thea-header>
+            </thea-sector>
 
             <md-layout md-align="center">
                 <router-view class="main-content perspective md-flex"></router-view>
@@ -23,6 +25,7 @@
     import TheaAttention from '@/components/Attention';
     import TheaHeader from '@/components/Header';
     import TheaFooter from '@/components/Footer';
+    import TheaSector from '@/components/Sector';
 
     export default {
         name: 'thea-app',
@@ -30,7 +33,8 @@
             SvgCircle,
             TheaAttention,
             TheaHeader,
-            TheaFooter
+            TheaFooter,
+            TheaSector
         }
     };
 
