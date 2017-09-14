@@ -1,6 +1,6 @@
 # thea-drawings
 
-> A simple website showing drawings and illustrations
+> A simple website build in Vue.js to show drawings and illustrations
 
 ## Build Setup
 
