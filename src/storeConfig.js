@@ -5,8 +5,7 @@ const storeConfig = {
             'image1',
             'image2'
         ],
-        sectors: {},
-        sectorComponents: {}
+        sectors: {}
     },
     mutations: {
         setImages (state, imageData) {
@@ -29,23 +28,46 @@ const storeConfig = {
         goToImage (state, index) {
             state.currentImageIndex = index;
         },
-        // setComponentSectors (state, components) {
-        //     const componentIndex = 1;
-        //     Object.values(components).forEach(component => {
-        //         Object.assign(state.sectors, {
-        //             [`component-${componentIndex}`]: {
-        //                 x1: component.x1,
-        //                 x2: component.x1 + component.width,
-        //                 y1: component.x2,
-        //                 y2: component.x2 + component.height
-        //             }
-        //         });
-        //     });
-        // },
         addSectorComponent(state, componentData) {
             state.sectors[componentData.id] = componentData.dimensions;
         },
-        drawSectors () {}
+        drawSectors (state, activeSector) {
+            let sectorHolder = document.querySelector('#sector-holder');
+
+            if (sectorHolder) {
+                sectorHolder.innerHTML = '';
+            } else {
+                sectorHolder = document.createElement('div');
+                sectorHolder.id = 'sector-holder';
+                sectorHolder.style.position = 'absolute';
+                sectorHolder.style.top = 0;
+                sectorHolder.style.left = 0;
+            }
+
+            Object.keys(state.sectors).forEach(sectorId => {
+                const sectorEl = document.createElement('div');
+                const sectorColor = sectorId === activeSector[0] ? 'papayawhip' : '#c3c3c3';
+                const sectorDim = state.sectors[sectorId];
+                Object.assign(sectorEl.style, {
+                    position: 'relative',
+                    width: `${sectorDim.width}px`,
+                    height: `${sectorDim.height}px`,
+                    left: `${sectorDim.x1}px`,
+                    top: `${sectorDim.y1}px`,
+                    color: sectorColor,
+                    border: `1px solid ${sectorColor}`,
+                    opacity: '0.8',
+                    'text-align': 'center',
+                    'line-height': `${sectorDim.height}px`
+                });
+
+                sectorEl.innerHTML = `
+                    <span>${sectorId}</span>
+                `;
+                sectorHolder.appendChild(sectorEl);
+            });
+            document.documentElement.appendChild(sectorHolder);
+        }
     },
     getters: {
         firstImageIndex: state => (state.images.length >= 0 ? 0 : undefined),
