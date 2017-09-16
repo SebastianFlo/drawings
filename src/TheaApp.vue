@@ -15,7 +15,9 @@
                 <router-view class="main-content perspective md-flex"></router-view>
             </md-layout>
 
-            <thea-footer></thea-footer>
+            <thea-sector>
+                <thea-footer id="thea-footer"></thea-footer>
+            </thea-sector>
         </md-theme>
     </div>
 </template>
