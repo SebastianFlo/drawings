@@ -40,7 +40,11 @@
                 }
                 // Store in a table, or do some magic
                 const activeSectorId = this.fitMouseInSector(this.mousePos, this.sectors);
-                this.$store.commit('drawSectors', activeSectorId);
+                if (!activeSectorId[0]) {
+                    return;
+                }
+                this.$store.commit('drawSectors', activeSectorId[0]);
+                this.$store.commit('setAttention', activeSectorId[0]);
             },
             fitMouseInSector (mousePos, sectors) {
                 return Object.keys(sectors)
