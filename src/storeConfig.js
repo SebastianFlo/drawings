@@ -5,7 +5,8 @@ const storeConfig = {
             'image1',
             'image2'
         ],
-        sectors: {}
+        sectors: {},
+        attention: {}
     },
     mutations: {
         setImages (state, imageData) {
@@ -46,7 +47,7 @@ const storeConfig = {
 
             Object.keys(state.sectors).forEach(sectorId => {
                 const sectorEl = document.createElement('div');
-                const sectorColor = sectorId === activeSector[0] ? 'papayawhip' : '#c3c3c3';
+                const sectorColor = sectorId === activeSector ? 'papayawhip' : '#c3c3c3';
                 const sectorDim = state.sectors[sectorId];
                 Object.assign(sectorEl.style, {
                     position: 'relative',
@@ -67,6 +68,9 @@ const storeConfig = {
                 sectorHolder.appendChild(sectorEl);
             });
             document.documentElement.appendChild(sectorHolder);
+        },
+        setAttention(state, sectorId) {
+            state.attention[sectorId] = state.attention[sectorId] + 1 || 1;
         }
     },
     getters: {
