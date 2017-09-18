@@ -75,7 +75,7 @@ const storeConfig = {
     },
     getters: {
         firstImageIndex: state => (state.images.length >= 0 ? 0 : undefined),
-        lastImageIndex: (state, getters) => getters.imageCount,
+        lastImageIndex: (state, getters) => getters.imageCount - 1,
         imageCount: state => state.images.length
     }
 };
