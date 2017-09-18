@@ -6,7 +6,8 @@ const storeConfig = {
             'image2'
         ],
         sectors: {},
-        attention: {}
+        attention: {},
+        rotate: false
     },
     mutations: {
         setImages (state, imageData) {
@@ -71,6 +72,9 @@ const storeConfig = {
         },
         setAttention(state, sectorId) {
             state.attention[sectorId] = state.attention[sectorId] + 1 || 1;
+        },
+        setRotate(state, rotate) {
+            state.rotate = rotate;
         }
     },
     getters: {

@@ -94,6 +94,11 @@
         transform: translateZ(-200px);
     }
 
+    .perspective-rotateY-50 {
+        transition: 1s ease-in-out;        
+        transform: rotateY(-30deg);
+    }
+
     .md-layout {
         border: 1px solid cornflowerblue;
     }

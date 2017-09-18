@@ -34,12 +34,13 @@ module.exports = {
       'optionalDependencies': ['test/unit/index.js']
     }],
     'comma-dangle': ['off'],
-    'space-before-function-paren': ['warn', 'never'],
-    'object-shorthand': ['warn'],
-    'arrow-parens': ['warn'],
-    'no-param-reassign': ['warn'],
-    'no-plusplus': ['warn'],
+    'space-before-function-paren': ['off'],
+    'object-shorthand': ['off'],
+    'arrow-parens': ['off'],
+    'no-param-reassign': ['off'],
+    'no-plusplus': ['off'],
     'indent': ['off'],
+    'prefer-arrow-callback': ['off'],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }

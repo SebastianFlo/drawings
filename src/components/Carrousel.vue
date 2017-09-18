@@ -1,12 +1,16 @@
 <template>
     <div>
-        <md-layout :md-gutter="40" md-align="center">
+        <thea-sector v-bind:threshold="3" @action="$store.commit('setRotate', !rotate)">
+            <md-button id="rotate-button" class="md-raised">Rotate</md-button>
+        </thea-sector>
+
+        <md-layout :md-gutter="40" md-align="center" v-bind:class="{ 'perspective-rotateY-50': rotate }">
             <md-layout>
-                <carrousel-item :card-data="images[currentImageIndex]" class="perspective-layer-1"></carrousel-item>
+                <carrousel-item :card-data="images[currentImageIndex]" class="perspective-layer-1" ></carrousel-item>
             </md-layout>
         </md-layout>
 
-        <md-layout>
+        <md-layout v-bind:class="{ 'perspective-rotateY-50': rotate }">
             <md-layout>
                 <md-layout>
                     <md-button @click="$store.commit('goToImage', firstImageIndex)" class="md-icon-button md-raised">
@@ -41,6 +45,7 @@
     import { mapState, mapGetters } from 'vuex';
 
     import CarrouselItem from '@/components/CarrouselItem';
+    import TheaSector from '@/components/Sector';
     import data from '../assets/data';
 
     export default {
@@ -51,13 +56,15 @@
             };
         },
         components: {
-            CarrouselItem
+            CarrouselItem,
+            TheaSector
         },
         mounted: function () {
             this.$store.commit('setImages', Object.values(data.images));
         },
         computed: {
             ...mapState([
+                'rotate',
                 'images',
                 'currentImageIndex'
             ]),
