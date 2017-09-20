@@ -33,10 +33,15 @@
                 };
             },
             setAction: function () {
-                console.log('watching', this.threshold);
                 if (this.id && this.attention[this.id] >= this.threshold) {
                     this.$emit('action');
                 }
+            }
+        },
+        computed: {
+            checkSectorAction: function () {
+                const sectorAttention = this.$store.state.attention[this.id];
+                console.log('sectorAttention', sectorAttention);
             }
         },
         mounted: function () {

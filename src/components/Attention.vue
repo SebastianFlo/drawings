@@ -13,7 +13,7 @@
             return {
                 message: 'This component measures attention',
                 mousePos: {},
-                checkMouseDuration: 3000,
+                checkMouseDuration: 2000,
                 myDoc: document.documentElement,
             };
         },
