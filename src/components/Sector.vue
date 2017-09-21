@@ -12,7 +12,8 @@
         },
         data: function () {
             return {
-                id: ''
+                id: '',
+                thresholdDuration: 1000
             };
         },
         // When the bound element is inserted into the DOM...
@@ -32,21 +33,17 @@
                     }
                 };
             },
-            setAction: function () {
-                if (this.id && this.attention[this.id] >= this.threshold) {
+            checkThreshhold: function () {
+                if (this.id && this.$store.state.attention[this.id] >= this.threshold) {
                     this.$emit('action');
+                    this.$store.commit('resetAttention', this.id);
                 }
-            }
-        },
-        computed: {
-            checkSectorAction: function () {
-                const sectorAttention = this.$store.state.attention[this.id];
-                console.log('sectorAttention', sectorAttention);
             }
         },
         mounted: function () {
             const component = this.getDimensions(this.$children[0].$el);
             this.$store.commit('addSectorComponent', component);
+            setInterval(this.checkThreshhold, this.thresholdDuration);
         }
     };
 

@@ -73,6 +73,9 @@ const storeConfig = {
         setAttention(state, sectorId) {
             state.attention[sectorId] = state.attention[sectorId] + 1 || 1;
         },
+        resetAttention(state, sectorId) {
+            state.attention[sectorId] = 0;
+        },
         setRotate(state, rotate) {
             state.rotate = rotate;
         }
