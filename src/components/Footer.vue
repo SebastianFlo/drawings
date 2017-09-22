@@ -1,30 +1,37 @@
 <template>
-  <div>
-    <h3>{{ message }}</h3>
-  </div>
+    <div>
+        <thea-sector v-bind:threshold="3" @action="$store.commit('setRotate', false)">
+            <h3 id="footer-message">{{ message }}</h3>
+        </thea-sector>
+    </div>
 </template>
 
 <script>
-  export default {
-    name: 'thea-footer',
-    data() {
-      return {
-        message: 'This is a footer',
-      };
-    }
-  };
+    import TheaSector from '@/components/Sector';
+
+    export default {
+        name: 'thea-footer',
+        data() {
+            return {
+                message: 'This is a footer',
+            };
+        },
+        components: {
+            TheaSector
+        }
+    };
 
 </script>
 
 <!-- Add "scoped " attribute to limit CSS to this component only -->
 <style scoped>
-  div {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    background-color: #efefef;
-    text-align: center;
-  }
+    div {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 1rem;
+        background-color: #efefef;
+        text-align: center;
+    }
 </style>
