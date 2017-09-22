@@ -1,12 +1,11 @@
 <template>
     <div>
-        <thea-sector v-bind:threshold="3" @action="$store.commit('setRotate', !rotate)">
-            <md-button id="rotate-button" class="md-raised">Rotate</md-button>
-        </thea-sector>
 
         <md-layout :md-gutter="40" md-align="center" v-bind:class="{ 'perspective-rotateY-50': rotate }">
             <md-layout>
-                <carrousel-item :card-data="images[currentImageIndex]" class="perspective-layer-1" ></carrousel-item>
+                <thea-sector v-bind:threshold="3" @action="$store.commit('setRotate', !rotate)">                
+                        <carrousel-item :card-data="images[currentImageIndex]" class="perspective-layer-1" id="carrousel-item"></carrousel-item>
+                </thea-sector>
             </md-layout>
         </md-layout>
 
