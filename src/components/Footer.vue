@@ -1,6 +1,6 @@
 <template>
     <div>
-        <thea-sector v-bind:threshold="3" @action="$store.commit('setRotate', false)">
+        <thea-sector v-bind:threshold="2" @action="$store.commit('setRotate', false)">
             <h3 id="footer-message">{{ message }}</h3>
         </thea-sector>
     </div>

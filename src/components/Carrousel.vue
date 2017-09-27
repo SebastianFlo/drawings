@@ -3,7 +3,7 @@
 
         <md-layout :md-gutter="40" md-align="center" v-bind:class="{ 'perspective-rotateY-50': rotate }">
             <md-layout>
-                <thea-sector v-bind:threshold="3" @action="$store.commit('setRotate', !rotate)">                
+                <thea-sector v-bind:threshold="2" @action="$store.commit('setRotate', !rotate)">                
                         <carrousel-item :card-data="images[currentImageIndex]" class="perspective-layer-1" id="carrousel-item"></carrousel-item>
                 </thea-sector>
             </md-layout>
