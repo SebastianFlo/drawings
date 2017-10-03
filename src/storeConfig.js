@@ -7,7 +7,8 @@ const storeConfig = {
         ],
         sectors: {},
         attention: {},
-        rotate: false
+        rotate: false,
+        bounce: false
     },
     mutations: {
         setImages (state, imageData) {
@@ -78,6 +79,9 @@ const storeConfig = {
         },
         setRotate(state, rotate) {
             state.rotate = rotate;
+        },
+        setBouce(state, bounce) {
+            state.bounce = bounce;
         }
     },
     getters: {

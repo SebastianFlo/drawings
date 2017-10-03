@@ -15,9 +15,7 @@
                 <router-view class="main-content perspective md-flex"></router-view>
             </md-layout>
 
-            <thea-sector>
-                <thea-footer id="thea-footer"></thea-footer>
-            </thea-sector>
+            <thea-footer></thea-footer>
         </md-theme>
     </div>
 </template>
@@ -99,7 +97,59 @@
         transform: rotateY(-30deg);
     }
 
+    .bounce {
+        animation-duration: 3s;
+        animation-name: bounce;
+    }
+
     .md-layout {
         border: 1px solid cornflowerblue;
+    }
+
+    @keyframes bounce {
+        0% {
+            transform:translateY(-100%);
+        }
+
+        15% {
+            transform:translateY(0);
+        }
+
+        30% {
+            transform:translateY(-50%);
+        }
+
+        50% {
+            transform:translateY(-30%);
+        }
+
+        70% {
+            transform:translateY(0%);
+            padding-bottom: 7px;
+        }
+
+        80% {
+            transform:translateY(-15%);
+        }
+
+        90% {
+            transform:translateY(0%);
+        }
+
+        95% {
+            transform:translateY(-7%);
+        }
+
+        97% {
+            transform:translateY(0%);
+        }
+
+        99% {
+            transform:translateY(-3%);
+        }
+
+        100% {
+            transform:translateY(0);
+        }
     }
 </style>
