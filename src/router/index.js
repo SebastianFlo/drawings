@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import Home from '@/pages/Home';
-import Contact from '@/pages/Home';
+import Contact from '@/pages/Contact';
 
 Vue.use(Router);
 
