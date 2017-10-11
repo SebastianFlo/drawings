@@ -6,7 +6,10 @@
             <md-toolbar class="md-transparent">
                 <h2 class="md-title" style="flex: 1">Thea's Website</h2>
             </md-toolbar>
-
+            
+            <router-link to="/">Go to Home</router-link>
+            <router-link to="/contact">Go to Contact</router-link>
+            <router-link to="/shop">Go to Shop</router-link>
             <thea-sector>
                 <thea-header id="thea-header"></thea-header>
             </thea-sector>
