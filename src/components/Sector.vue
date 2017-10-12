@@ -41,6 +41,9 @@
             }
         },
         mounted: function () {
+            if (!this.$children[0]) {
+                return;
+            }
             const component = this.getDimensions(this.$children[0].$el);
             this.$store.commit('addSectorComponent', component);
             setInterval(this.checkThreshhold, this.thresholdDuration);
