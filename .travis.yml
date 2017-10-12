@@ -11,3 +11,4 @@ script:
     - npm run build
 deploy:
   provider: azure_web_apps
+  verbose: true
