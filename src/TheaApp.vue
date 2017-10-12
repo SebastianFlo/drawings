@@ -1,18 +1,25 @@
 <template>
     <div id="thea-app">
         <thea-attention show-sectors="true"></thea-attention>
-        <svg-circle></svg-circle>
+        <!-- <svg-circle></svg-circle> -->
         <md-theme md-name="default">
             <md-toolbar class="md-transparent">
                 <h2 class="md-title" style="flex: 1">Thea's Website</h2>
             </md-toolbar>
             
-            <router-link to="/">Go to Home</router-link>
-            <router-link to="/contact">Go to Contact</router-link>
-            <router-link to="/shop">Go to Shop</router-link>
-            <thea-sector>
-                <thea-header id="thea-header"></thea-header>
-            </thea-sector>
+            <md-layout md-align="center">
+                <md-layout>   
+                    <router-link to="/">Go to Home</router-link>
+                </md-layout>
+                <md-layout>   
+                    <router-link to="/contact">Go to Contact</router-link>
+                </md-layout>
+                <md-layout>   
+                    <router-link to="/shop">Go to Shop</router-link>
+                </md-layout>
+            </md-layout>
+
+            <thea-header id="thea-header"></thea-header>
 
             <md-layout md-align="center">
                 <router-view class="main-content perspective md-flex"></router-view>
