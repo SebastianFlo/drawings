@@ -1,23 +1,28 @@
 <template>
     <div class="shop-container">
         <md-layout md-align="center">
-                <thea-drawing></thea-drawing>
+            <shop-item></shop-item>
+            <shop-item></shop-item>
+            <shop-item></shop-item>
         </md-layout>
     </div>
 </template>
 
 <script>
-    import TheaDrawing from '@/components/Drawing';
+    import ShopItem from '@/modules/shop/components/ShopItem';
 
     export default {
         name: 'thea-shop',
         data() {
             return {
-                greeting: 'Welcome To Thea\'s shop Page'
+                greeting: 'Welcome To Thea\'s shop Page',
+                currentImages: ['image-cat', 'logo'],
+                currentImage: 'image-cat',
+                currentIndex: 0
             };
         },
         components: {
-            TheaDrawing
+            ShopItem
         }
     };
 
