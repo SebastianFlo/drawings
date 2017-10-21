@@ -8,7 +8,8 @@ const storeConfig = {
         sectors: {},
         attention: {},
         rotate: false,
-        bounce: false
+        bounce: false,
+        cart: {}
     },
     mutations: {
         setImages (state, imageData) {
