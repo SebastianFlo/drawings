@@ -10,6 +10,7 @@
 
 <script>
     import ShopItem from '@/modules/shop/components/ShopItem';
+    import ImageService from '../services/image.service';
 
     export default {
         name: 'thea-shop',
@@ -18,11 +19,20 @@
                 greeting: 'Welcome To Thea\'s shop Page',
                 currentImages: ['image-cat', 'logo'],
                 currentImage: 'image-cat',
-                currentIndex: 0
+                currentIndex: 0,
+                data: undefined
             };
         },
         components: {
             ShopItem
+        },
+        mounted() {
+            this.getData();
+        },
+        methods: {
+            getData() {
+                return ImageService.getAll().then(data => this.data = data);
+            }
         }
     };
 
