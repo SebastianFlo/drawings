@@ -31,3 +31,5 @@ new Vue({
   template: '<TheaApp/>',
   components: { TheaApp },
 });
+
+export const Vue;
