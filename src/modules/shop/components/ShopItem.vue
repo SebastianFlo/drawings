@@ -1,12 +1,21 @@
 <template>
     <div class="shop-item">
-        Shop Item {{ name }}
+        <md-card class="th-card md-primary" md-flex-xsmall="100" md-flex-small="50">
+            <md-card-header>
+              <div class="md-title">{{ imageData.name }}</div>
+            </md-card-header>
+        
+            <md-card-media class="th-box20">
+                <img v-bind:src="imageData.url" alt="">
+            </md-card-media>
+          </md-card>
     </div>
 </template>
 
 <script>
     export default {
         name: 'shop-item',
+        props: ['image-data'],
         data() {
             return {
                 name: 'Cat'

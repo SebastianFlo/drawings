@@ -1,9 +1,13 @@
 <template>
     <div class="shop-container">
-        <md-layout md-align="center">
-            <shop-item></shop-item>
-            <shop-item></shop-item>
-            <shop-item></shop-item>
+        <md-layout>
+            <shop-item v-for="image in images" v-bind:image-data="image"></shop-item>
+            <md-button @click="getPage(currentIndex--)" class="md-icon-button md-raised">
+                <md-icon>keyboard_arrow_left</md-icon>
+            </md-button>
+            <md-button @click="getPage(currentIndex++)" class="md-icon-button md-raised">
+                <md-icon>keyboard_arrow_right</md-icon>
+            </md-button>
         </md-layout>
     </div>
 </template>
@@ -19,19 +23,21 @@
                 greeting: 'Welcome To Thea\'s shop Page',
                 currentImages: ['image-cat', 'logo'],
                 currentImage: 'image-cat',
-                currentIndex: 0,
-                data: undefined
+                currentIndex: 1,
+                images: []
             };
         },
         components: {
             ShopItem
         },
         mounted() {
-            this.getData();
+            this.getPage(this.currentIndex);
         },
         methods: {
-            getData() {
-                return ImageService.getAll().then(data => this.data = data);
+            getPage(number) {
+                return ImageService.getPage(number).then(data => {
+                    this.images = data;
+                });
             }
         }
     };

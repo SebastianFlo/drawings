@@ -46,6 +46,7 @@ module.exports = {
     'no-new': 0,
     'no-unused-vars': 1,
     'no-return-assign': 0,
+    'padded-blocks': 0,
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }
