@@ -5,13 +5,14 @@ import 'vue-material/dist/vue-material.css';
 import Vue from 'vue';
 import Vuex from 'vuex';
 import VueMaterial from 'vue-material';
+import VueResource from 'vue-resource';
+
 
 import TheaApp from './TheaApp';
 import router from './router';
 
 import storeConfig from './storeConfig';
 import themes from './themes';
-
 
 Vue.config.productionTip = false;
 Vue.use(VueMaterial);
@@ -31,5 +32,3 @@ new Vue({
   template: '<TheaApp/>',
   components: { TheaApp },
 });
-
-export const Vue;
