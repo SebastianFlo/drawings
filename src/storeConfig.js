@@ -9,6 +9,7 @@ const storeConfig = {
         attention: {},
         rotate: false,
         bounce: false,
+        currentPage: 1,
         cart: {}
     },
     mutations: {
@@ -28,6 +29,15 @@ const storeConfig = {
                 return;
             }
             state.currentImageIndex++;
+        },
+        prevPage (state) {
+            if (state.currentPage === 0) {
+                return;
+            }
+            state.currentPage--;
+        },
+        nextPage (state) {
+            state.currentPage++;
         },
         goToImage (state, index) {
             state.currentImageIndex = index;
