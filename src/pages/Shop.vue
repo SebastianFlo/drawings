@@ -2,10 +2,11 @@
     <div class="shop-container">
         <md-layout>
             <shop-item v-for="image in images" v-bind:image-data="image"></shop-item>
-            <md-button @click="getPage(currentIndex--)" class="md-icon-button md-raised">
+            <md-button v-if="currentPage > 1" @click="$store.commit('prevPage'); getPage()" class="md-icon-button md-raised">
                 <md-icon>keyboard_arrow_left</md-icon>
             </md-button>
-            <md-button @click="getPage(currentIndex++)" class="md-icon-button md-raised">
+            <h3>{{ currentPage }}</h3>
+            <md-button @click="$store.commit('nextPage'); getPage()" class="md-icon-button md-raised">
                 <md-icon>keyboard_arrow_right</md-icon>
             </md-button>
         </md-layout>
@@ -13,6 +14,8 @@
 </template>
 
 <script>
+    import { mapState, mapGetters } from 'vuex';
+
     import ShopItem from '@/modules/shop/components/ShopItem';
     import ImageService from '../services/image.service';
 
@@ -31,14 +34,19 @@
             ShopItem
         },
         mounted() {
-            this.getPage(this.currentIndex);
+            this.getPage();
         },
         methods: {
-            getPage(number) {
-                return ImageService.getPage(number).then(data => {
+            getPage() {
+                return ImageService.getPage(this.currentPage).then(data => {
                     this.images = data;
                 });
             }
+        },
+        computed: {
+            ...mapState([
+                'currentPage'
+            ])
         }
     };
 
