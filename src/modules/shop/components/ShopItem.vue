@@ -6,7 +6,7 @@
             </md-card-header>
         
             <md-card-media class="th-box20">
-                <img v-bind:src="imageData.url" alt="">
+                <img @load="loaded = true" v-bind:class="{ 'shop-image-blur': !loaded }" class="shop-image" v-bind:src="imageData.url" alt="">
             </md-card-media>
           </md-card>
     </div>
@@ -18,9 +18,11 @@
         props: ['image-data'],
         data() {
             return {
-                name: 'Cat'
+                name: 'Cat',
+                loaded: false
             };
-        }
+        },
+
     };
 
 </script>
@@ -32,5 +34,14 @@
         border: 1px solid cornflowerblue;
         margin: 4px;
         padding: 4px;
+    }
+
+    .shop-image {
+        transition: all 500ms;
+    }
+
+    .shop-image-blur {
+        opacity: 0.3;
+        filter: blur(4px);
     }
 </style>
