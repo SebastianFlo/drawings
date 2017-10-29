@@ -22,6 +22,12 @@
                 loaded: false
             };
         },
+        watch: {
+            imageData: function (value) {
+                console.log(`src changed to ${value.url}`);
+                this.loaded = false;
+            }
+      }
 
     };
 
