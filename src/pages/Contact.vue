@@ -2,17 +2,24 @@
     <div class="contact-container">
         <md-layout md-align="center" class="flex-vert">
             {{ greeting }}
+
         </md-layout>
+        <contact-form></contact-form>
     </div>
 </template>
 
 <script>
+    import ContactForm from '@/modules/contact/components/ContactForm';
+
     export default {
         name: 'thea-contact',
         data() {
             return {
                 greeting: 'Welcome To Thea\'s Contact Page'
             };
+        },
+        components: {
+            ContactForm
         }
     };
 
