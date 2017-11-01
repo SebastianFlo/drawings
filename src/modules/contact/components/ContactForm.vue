@@ -1,10 +1,17 @@
 <template>
     <div>
-        <md-layout md-align="center" class="flex-vert">
+        <md-layout md-align="center">
             {{ greeting }}
         </md-layout>
-        <label for="email">Email</label>
-        <input type="email" name="email" required>
+        <form name="contactForm" v-bind:ref="'contactForm'">
+            <md-layout md-align="center">
+                <label for="email">Email</label>
+                <input type="email" name="email" required v-model="email">
+            </md-layout>
+            <md-layout md-align="center">
+                <md-button :disabled="!form.checkValidity()" type="submit" class="md-raised">Send</md-button>
+            </md-layout>
+        </form>
     </div>
 </template>
 
@@ -13,8 +20,28 @@
         name: 'thea-contact-form',
         data() {
             return {
-                greeting: 'Contact Form'
+                greeting: 'Contact Form',
+                email: '',
+                form: {
+                    checkValidity () {
+                        return false;
+                    }
+                },
+                mounted: false
             };
+        },
+        computed: {
+            isValid() {
+                if (!this.mounted || !this.form) {
+                    return false;
+                }
+                console.log(this.form.checkValidity());
+                return this.form.checkValidity();
+            }
+        },
+        mounted () {
+            this.mounted = true;
+            this.form = this.$refs.contactForm;
         }
     };
 
