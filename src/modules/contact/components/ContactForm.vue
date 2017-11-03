@@ -13,7 +13,7 @@
                 <input type="email" name="email" required v-model="email">
             </md-layout>
             <md-layout md-align="center">
-                <md-button :disabled="!form.checkValidity()" type="submit" class="md-raised">Send</md-button>
+                <md-button :disabled="!form.checkValidity()" type="submit" class="md-raised">Send {{ form.checkValidity() }}</md-button>
             </md-layout>
         </form>
     </div>
@@ -26,6 +26,7 @@
             return {
                 greeting: 'Contact Form',
                 email: '',
+                name: '',
                 form: {
                     checkValidity () {
                         return false;
@@ -33,15 +34,6 @@
                 },
                 mounted: false
             };
-        },
-        computed: {
-            isValid() {
-                if (!this.mounted || !this.form) {
-                    return false;
-                }
-                console.log(this.form.checkValidity());
-                return this.form.checkValidity();
-            }
         },
         mounted () {
             this.mounted = true;
