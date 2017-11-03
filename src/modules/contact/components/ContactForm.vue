@@ -5,6 +5,10 @@
         </md-layout>
         <form name="contactForm" v-bind:ref="'contactForm'">
             <md-layout md-align="center">
+                <label for="name">Name</label>
+                <input type="text" name="name" required v-model="name">
+            </md-layout>
+            <md-layout md-align="center">
                 <label for="email">Email</label>
                 <input type="email" name="email" required v-model="email">
             </md-layout>
