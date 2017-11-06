@@ -13,6 +13,10 @@
                 <input type="email" name="email" required v-model="email">
             </md-layout>
             <md-layout md-align="center">
+                <label for="message">Message</label>
+                <input type="textarea" name="message" required v-model="message">
+            </md-layout>
+            <md-layout md-align="center">
                 <md-button :disabled="!form.checkValidity()" type="submit" class="md-raised">Send {{ form.checkValidity() }}</md-button>
             </md-layout>
         </form>
@@ -27,6 +31,7 @@
                 greeting: 'Contact Form',
                 email: '',
                 name: '',
+                message: '',
                 form: {
                     checkValidity () {
                         return false;
