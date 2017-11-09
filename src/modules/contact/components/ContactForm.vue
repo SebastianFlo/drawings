@@ -32,17 +32,22 @@
                 email: '',
                 name: '',
                 message: '',
+                mounted: false,                
                 form: {
                     checkValidity () {
                         return false;
                     }
-                },
-                mounted: false
+                }
             };
         },
         mounted () {
             this.mounted = true;
             this.form = this.$refs.contactForm;
+        },
+        methods: {
+            submit () {
+                console.log('Submitted');
+            }
         }
     };
 
