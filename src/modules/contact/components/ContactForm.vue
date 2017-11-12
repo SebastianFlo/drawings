@@ -32,7 +32,7 @@
                 email: '',
                 name: '',
                 message: '',
-                mounted: false,                
+                mounted: false,
                 form: {
                     checkValidity () {
                         return false;
