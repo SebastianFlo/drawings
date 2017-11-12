@@ -34,6 +34,7 @@ module.exports = {
     }],
     // allow optionalDependencies
     'import/no-extraneous-dependencies': 0,
+    'import/extensions': 0,
     'comma-dangle': 0,
     'space-before-function-paren': 0,
     'object-shorthand': 0,
