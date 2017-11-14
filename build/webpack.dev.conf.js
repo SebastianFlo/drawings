@@ -34,8 +34,6 @@ module.exports = merge(baseWebpackConfig, {
     }),
     new FriendlyErrorsPlugin(),
     new LiveReloadPlugin(),
-    new DashboardPlugin({ 
-            port: 8080 
-        })
+    new DashboardPlugin()
   ]
 })
