@@ -2,7 +2,6 @@
     <div class="contact-container">
         <md-layout md-align="center" class="flex-vert">
             {{ greeting }}
-
         </md-layout>
         <contact-form></contact-form>
     </div>
