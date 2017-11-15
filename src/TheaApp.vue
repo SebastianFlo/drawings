@@ -17,6 +17,9 @@
                 <md-layout>   
                     <router-link to="/shop">Go to Shop</router-link>
                 </md-layout>
+                <md-layout>   
+                    <router-link to="/admin">Admin</router-link>
+                </md-layout>
             </md-layout>
 
             <thea-header id="thea-header"></thea-header>

@@ -4,6 +4,7 @@ import Router from 'vue-router';
 import Home from '@/pages/Home';
 import Contact from '@/pages/Contact';
 import Shop from '@/pages/Shop';
+import Admin from '@/pages/Admin';
 
 Vue.use(Router);
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/shop',
       name: 'Shop',
       component: Shop
+    },
+    {
+      path: '/admin',
+      name: 'Admin',
+      component: Admin
     }
   ]
 });

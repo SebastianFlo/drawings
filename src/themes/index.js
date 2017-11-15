@@ -3,7 +3,7 @@ export default {
     primary: 'white',
     accent: 'red',
     warn: 'red',
-    background: 'grey',
+    // background: 'grey',
   },
   bw: {
     primary: 'white',
