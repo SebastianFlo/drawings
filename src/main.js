@@ -14,8 +14,6 @@ import router from './router';
 import storeConfig from './storeConfig';
 import themes from './themes';
 
-import './code_viz';
-
 Vue.config.productionTip = false;
 Vue.use(VueMaterial);
 Vue.use(Vuex);
