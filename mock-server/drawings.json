@@ -510,5 +510,8 @@
 			"name": "Mynah, indian cat",
 			"url": "http://dummyimage.com/129x154.jpg/5fa2dd/ffffff"
 		}
-	]
+    ],
+    "auth": {
+        "callback": true
+    }
 }
