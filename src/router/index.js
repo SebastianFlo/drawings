@@ -5,6 +5,7 @@ import Home from '@/pages/Home';
 import Contact from '@/pages/Contact';
 import Shop from '@/pages/Shop';
 import Admin from '@/pages/Admin';
+import Gallery from '@/pages/Gallery';
 
 Vue.use(Router);
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/admin',
       name: 'Admin',
       component: Admin
+    },
+    {
+      path: '/gallery',
+      name: 'Gallery',
+      component: Gallery
     }
   ]
 });
