@@ -1,12 +1,10 @@
 <template>
     <div>
-        <h3>{{ message }} ({{ imageCount }})</h3>
+        <h3>{{ message }} ()</h3>
     </div>
 </template>
 
 <script>
-    import { mapGetters } from 'vuex';
-
     export default {
         name: 'thea-header',
         data() {
@@ -14,11 +12,6 @@
                 message: 'This is a header',
             };
         },
-        computed: {
-            ...mapGetters([
-                'imageCount'
-            ])
-        }
     };
 
 </script>
