@@ -1,7 +1,7 @@
 <template>
     <div class="home-container">
         <md-layout md-align="center" class="flex-vert">
-            <img src="../../static/9f1c8022086211.5630c61ba00f1.jpg" alt="">
+            <img src="../../static/cat_day.jpg" alt="">
         </md-layout>
     </div>
 </template>
@@ -22,8 +22,14 @@
 
 <!-- Add "scoped " attribute to limit CSS to this component only -->
 <style scoped>
+    img {
+        max-width: none;
+        margin-top: -350px;
+    }
+
     .home-container {
         display: flex;
         flex-direction: column;
+        overflow: hidden;
     }
 </style>

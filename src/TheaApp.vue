@@ -5,7 +5,7 @@
                 <h2 class="md-title" style="flex: 1">Thea's Website</h2>
             </md-toolbar>
             
-            <md-layout md-align="center">
+            <!-- <md-layout md-align="center">
                 <md-layout>   
                     <router-link to="/">Go to Home</router-link>
                 </md-layout>
@@ -18,7 +18,7 @@
                 <md-layout>   
                     <router-link to="/admin">Admin</router-link>
                 </md-layout>
-            </md-layout>
+            </md-layout> -->
 
             <md-layout md-align="center">
                 <router-view class="main-content md-flex"></router-view>
@@ -74,7 +74,7 @@
     }
 
     .md-layout {
-        border: 1px solid cornflowerblue;
+        /* border: 1px solid cornflowerblue; */
     }
 
     .flex-vert {
